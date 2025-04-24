@@ -53,7 +53,7 @@ $(document).ready(function () {
 
     // Handle contact form submission via AJAX
     $("#contact-form").on("submit", function (e) {
-        e.preventDefault(); // Prevent default form submission
+        e.preventDefault();
         var $form = $(this);
         var $responseDiv = $form.find(".form-response");
         $responseDiv.text("Sending...").css("color", "#333");
@@ -61,11 +61,11 @@ $(document).ready(function () {
         $.ajax({
             url: "https://script.google.com/macros/s/AKfycbyEEvzeNgmBYCTZN9gT35tWG7El-wB-x4F_8pjHaPvo-GEnXzPUEIKaaW0sCe62lboi/exec",
             type: "POST",
-            data: $form.serialize(), // Serialize form data
+            data: $form.serialize(),
             success: function (response) {
                 if (response === "Success") {
                     $responseDiv.text("Message sent successfully!").css("color", "green");
-                    $form[0].reset(); // Clear the form
+                    $form[0].reset();
                 } else {
                     $responseDiv.text("Error sending message. Please try again.").css("color", "red");
                 }
@@ -113,33 +113,48 @@ $(document).ready(function () {
     });
 
     // Typing animation and Owl Carousel (for index.html and root path)
+    console.log("Pathname:", window.location.pathname); // Debug pathname
     if (window.location.pathname.includes("index.html") || window.location.pathname === "/") {
-        var typed = new Typed(".typing", {
-            strings: ["Educator", "AI Researcher", "Entrepreneur"],
-            typeSpeed: 100,
-            backSpeed: 60,
-            loop: true
-        });
+        console.log("Inside index.html or root path condition");
 
-        var typed = new Typed(".typing-2", {
-            strings: ["Educator", "AI Researcher", "Entrepreneur"],
-            typeSpeed: 100,
-            backSpeed: 60,
-            loop: true
-        });
+        // Initialize Typed.js animations
+        try {
+            var typed1 = new Typed(".typing", {
+                strings: ["Educator", "AI Researcher", "Entrepreneur"],
+                typeSpeed: 100,
+                backSpeed: 60,
+                loop: true
+            });
+            console.log("Typed.js animation 1 initialized");
 
-        $('.carousel').owlCarousel({
-            margin: 20,
-            loop: true,
-            autoplay: true,
-            autoplayTimeout: 2000,
-            autoplayHoverPause: true,
-            responsive: {
-                0: { items: 1 },
-                600: { items: 2 },
-                1000: { items: 3 }
-            }
-        });
-        console.log("Owl Carousel initialized");
+            var typed2 = new Typed(".typing-2", {
+                strings: ["Educator", "AI Researcher", "Entrepreneur"],
+                typeSpeed: 100,
+                backSpeed: 60,
+                loop: true
+            });
+            console.log("Typed.js animation 2 initialized");
+        } catch (error) {
+            console.error("Typed.js error:", error);
+        }
+
+        // Initialize Owl Carousel
+        try {
+            $('.carousel').owlCarousel({
+                margin: 20,
+                loop: true,
+                autoplay: true,
+                autoplayTimeout: 2000,
+                autoplayHoverPause: true,
+                responsive: {
+                    0: { items: 1 },
+                    600: { items: 2 },
+                    1000: { items: 3 }
+                }
+            });
+            console.log("Owl Carousel initialized");
+        } catch (error) {
+            console.error("Owl Carousel error:", error);
+        }
     }
 });
