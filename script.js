@@ -112,10 +112,10 @@ $(document).ready(function () {
         }
     });
 
-    // Typing animation and Owl Carousel (for index.html and root path)
-    console.log("Pathname:", window.location.pathname); // Debug pathname
-    if (window.location.pathname.includes("index.html") || window.location.pathname === "/") {
-        console.log("Inside index.html or root path condition");
+    // Typing animation and Owl Carousel
+    console.log("Pathname:", window.location.pathname);
+    if (window.location.pathname.includes("index.html") || window.location.pathname === "/" || window.location.pathname === "/portfolioProject-BPS/") {
+        console.log("Inside index.html, root path, or portfolioProject-BPS condition");
 
         // Initialize Typed.js animations
         try {
