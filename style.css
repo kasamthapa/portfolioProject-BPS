@@ -820,24 +820,3 @@ footer span a:hover {
         line-height: 38px;
     }
 }
-/* Contact form message styling */
-.form-message {
-    margin-top: 15px;
-    padding: 10px 15px;
-    border-radius: 6px;
-    font-size: 16px;
-    font-family: 'Poppins', sans-serif;
-    text-align: center;
-}
-
-.form-message.success {
-    background: #d4edda;
-    color: #155724;
-    border: 1px solid #c3e6cb;
-}
-
-.form-message.error {
-    background: #f8d7da;
-    color: #721c24;
-    border: 1px solid #f5c6cb;
-}
