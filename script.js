@@ -112,8 +112,8 @@ $(document).ready(function () {
         }
     });
 
-    // Typing animation and Owl Carousel (only for index.html)
-    if (window.location.pathname.includes("index.html")) {
+    // Typing animation and Owl Carousel (for index.html and root path)
+    if (window.location.pathname.includes("index.html") || window.location.pathname === "/") {
         var typed = new Typed(".typing", {
             strings: ["Educator", "AI Researcher", "Entrepreneur"],
             typeSpeed: 100,
@@ -140,5 +140,6 @@ $(document).ready(function () {
                 1000: { items: 3 }
             }
         });
+        console.log("Owl Carousel initialized");
     }
 });
