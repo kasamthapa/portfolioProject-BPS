@@ -247,6 +247,44 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script>
+        $(document).ready(function() {
+            if (typeof Typed !== 'undefined') {
+                var typed = new Typed(".typing", {
+                    strings: ["Educator", "AI Researcher", "Entrepreneur"],
+                    typeSpeed: 100,
+                    backSpeed: 60,
+                    loop: true
+                });
+        
+                var typed2 = new Typed(".typing-2", {
+                    strings: ["Educator", "AI Researcher", "Entrepreneur"],
+                    typeSpeed: 100,
+                    backSpeed: 60,
+                    loop: true
+                });
+            } else {
+                console.error("Typed.js is not loaded");
+            }
+        
+            if ($.fn.owlCarousel) {
+                $('.carousel').owlCarousel({
+                    margin: 20,
+                    loop: true,
+                    autoplay: true,
+                    autoplayTimeout: 2000,
+                    autoplayHoverPause: true,
+                    responsive: {
+                        0: { items: 1 },
+                        600: { items: 2 },
+                        1000: { items: 3 }
+                    }
+                });
+            } else {
+                console.error("Owl Carousel is not loaded");
+            }
+        });
+        </script>
     <script src="script.js"></script>
 </body>
 </html>
